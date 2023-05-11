@@ -166,8 +166,8 @@ footer{
   position: fixed;
   bottom: 0;
   left: 20%; /* 60% / 2 = 30% - 20% = 10% de espacio en cada lado */
-  width: 60%;
-  height: 45%;
+  width: 70%;
+  height: 55%;
   background-color: #fff;
   border: 1px solid #ccc;
   z-index: 999;
