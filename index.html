@@ -82,10 +82,25 @@
 </script>
      <!-- Start of HubSpot Embed Code -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/22498467.js"> </script>
-  <script>
+  <script type="text/javascript
     function openChat() {
       window.HubSpotConversations.widget.open();
     }
-  </script>
+ 
+    window.hsConversationsSettings = {
+        loadImmediately: false
+    };
+
+   
+
+            window.hsConversationsSettings = {
+                identificationEmail: "gob@bluth.com",
+                identificationToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2JAYmx1dGguY29tIiwiYXVkIjoiMjI0OTg0NjciLCJsYXN0X25hbWUiOiJCbHV0aCIsImV4cCI6MTY4NzQ4NTg1NSwiaWF0IjoxNjg3NDQyNjU1LCJmaXJzdF9uYW1lIjoiR29iIn0.Iu_Au41wScshkkTdRn6yUzIoXqfkt49IFedB07AooJc,
+            };
+
+            window.HubSpotConversations.widget.load();
+
+       
+       </script>
 </body>
 </html>
