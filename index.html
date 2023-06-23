@@ -82,14 +82,15 @@ axios.get('https://2601-102-177-160-113.ngrok-free.app/create-hubspot-contact')
             identificationEmail: "bandres.jar@gmail.com",
             identificationToken: response.data.token,
         };
-        console.log(identificationEmail);
-        console.log(identificationToken);
+        console.log(window.hsConversationsSettings.identificationEmail);
+        console.log(window.hsConversationsSettings.identificationToken);
         console.log(response.data.token);
         window.HubSpotConversations.widget.load();
     })
     .catch(function (error) {
         console.log(error);
     });
+
 
        </script>
 </body>
