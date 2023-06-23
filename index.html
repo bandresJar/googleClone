@@ -89,7 +89,8 @@ axios.get('https://2601-102-177-160-113.ngrok-free.app/create-hubspot-contact')
             params: requestData
         })
         .then(function (response) {
-            console.log(response.data); 
+           
+            console.log(response.data.token);
             window.HubSpotConversations.widget.load();
         })
         .catch(function (error) {
