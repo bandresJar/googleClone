@@ -78,14 +78,23 @@
 
 axios.get('https://2601-102-177-160-113.ngrok-free.app/create-hubspot-contact')
     .then(function (response) {
-        window.hsConversationsSettings = {
-            identificationEmail: "bandres.jar@gmail.com",
-            identificationToken: response.data.token,
+        var email = "luis.phi161@gmail.com"; 
+        var token = response.data.token;
+        var requestData = {
+            email: email,
+            identificationToken: token
         };
-        console.log(window.hsConversationsSettings.identificationEmail);
-        console.log(window.hsConversationsSettings.identificationToken);
-        console.log(response.data.token);
-        window.HubSpotConversations.widget.load();
+
+        axios.get('https://2601-102-177-160-113.ngrok-free.app/process-hubspot-contact', {
+            params: requestData
+        })
+        .then(function (response) {
+            console.log(response.data); 
+            window.HubSpotConversations.widget.load();
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     })
     .catch(function (error) {
         console.log(error);
