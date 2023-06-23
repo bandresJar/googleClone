@@ -6,8 +6,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="./estilos/main.css">
         <script src="popup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
-    <script>(function(w,d,s,u,f,m,n,o){o='https://survey.zohopublic.com';w[f]=w[f]||function(){(w[f].p=w[f].p||[]).push(arguments);};m=d.createElement(s),n=d.getElementsByTagName(s)[0];m.async=1;m.src=o+u;n.parentNode.insertBefore(m,n);zs_intercept(o,'S7B3ra',{"displayPeriod":2,"position":4,"hideEndPage":true,"vMaps":[{"var_type":0,"c_var_id":"972170000000004033","var_name":"https://probandopush.netlify.app/"}],"timeout":3});})(window, document, 'script', '/api/v1/public/livesurveys/S7B3ra/popup/script', 'zs_intercept');</script>
+    <!--script>(function(w,d,s,u,f,m,n,o){o='https://survey.zohopublic.com';w[f]=w[f]||function(){(w[f].p=w[f].p||[]).push(arguments);};m=d.createElement(s),n=d.getElementsByTagName(s)[0];m.async=1;m.src=o+u;n.parentNode.insertBefore(m,n);zs_intercept(o,'S7B3ra',{"displayPeriod":2,"position":4,"hideEndPage":true,"vMaps":[{"var_type":0,"c_var_id":"972170000000004033","var_name":"https://probandopush.netlify.app/"}],"timeout":3});})(window, document, 'script', '/api/v1/public/livesurveys/S7B3ra/popup/script', 'zs_intercept');
+</script-->
 
 </head>
 <body>
@@ -47,11 +49,11 @@
             </div>
         </section>
     </main>
-    <div class="popup">
+    <!--div class="popup">
         <iframe src="https://www.startquestion.com/survey/944253/habitanto.html?iframe=1" scrolling="auto" 
                 frameborder="0" id="AutoIframeHeight" width="100%" height="100%"></iframe><script 
                 type="text/javascript">(window.addEventListener||window.attachEvent)(window.addEventListener?"message":"onmessage",function(e){if(e.data&&"AutoIframeHeight"==e.data.name){document.getElementById(e.data.name).scrolling="SI";var t=function(t){if(e.data.value){var n=document.getElementById(e.data.name);if(n.height=e.data.value,e.data.scroll&&!t){var a=n.getBoundingClientRect().top+document.documentElement.scrollTop;window.scrollTo(0,a)}}};t(!1),setTimeout(function(){t(!0)},1e3)}});</script>
-</div>
+</div-->
     <footer>
 
         <ul class="footer-left">
@@ -83,22 +85,22 @@
      <!-- Start of HubSpot Embed Code -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/22498467.js"> </script>
   <script type="text/javascript>
-    
- 
     window.hsConversationsSettings = {
-        loadImmediately: false
-    };
+    loadImmediately: false
+};
 
-   
+axios.get('https://2601-102-177-160-113.ngrok-free.app/create-hubspot-contact')
+    .then(function (response) {
+        window.hsConversationsSettings = {
+            identificationEmail: "luis.phi161@gmail.com",
+            identificationToken: response.data.token,
+        };
+        window.HubSpotConversations.widget.load();
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 
-            window.hsConversationsSettings = {
-                identificationEmail: "gob@bluth.com",
-                identificationToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2JAYmx1dGguY29tIiwiYXVkIjoiMjI0OTg0NjciLCJsYXN0X25hbWUiOiJCbHV0aCIsImV4cCI6MTY4NzQ4NTg1NSwiaWF0IjoxNjg3NDQyNjU1LCJmaXJzdF9uYW1lIjoiR29iIn0.Iu_Au41wScshkkTdRn6yUzIoXqfkt49IFedB07AooJc,
-            };
-
-            window.HubSpotConversations.widget.load();
-
-       
        </script>
 </body>
 </html>
