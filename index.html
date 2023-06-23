@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./estilos/main.css">
-        <script src="popup.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
     <!--script>(function(w,d,s,u,f,m,n,o){o='https://survey.zohopublic.com';w[f]=w[f]||function(){(w[f].p=w[f].p||[]).push(arguments);};m=d.createElement(s),n=d.getElementsByTagName(s)[0];m.async=1;m.src=o+u;n.parentNode.insertBefore(m,n);zs_intercept(o,'S7B3ra',{"displayPeriod":2,"position":4,"hideEndPage":true,"vMaps":[{"var_type":0,"c_var_id":"972170000000004033","var_name":"https://probandopush.netlify.app/"}],"timeout":3});})(window, document, 'script', '/api/v1/public/livesurveys/S7B3ra/popup/script', 'zs_intercept');
@@ -75,7 +74,7 @@
   <script type="text/javascript">
     window.hsConversationsSettings = {
     loadImmediately: false
-};
+    };
 
 axios.get('https://2601-102-177-160-113.ngrok-free.app/create-hubspot-contact')
     .then(function (response) {
@@ -83,6 +82,9 @@ axios.get('https://2601-102-177-160-113.ngrok-free.app/create-hubspot-contact')
             identificationEmail: "luis.phi161@gmail.com",
             identificationToken: response.data.token,
         };
+        console.log(identificationEmail);
+        console.log(identificationToken);
+        console.log(response.data.token);
         window.HubSpotConversations.widget.load();
     })
     .catch(function (error) {
