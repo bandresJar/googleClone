@@ -83,7 +83,7 @@ var emailInput = document.getElementById('email-input');
 form.addEventListener('submit', function (event) {
     event.preventDefault(); // Evitar la recarga de la página por defecto al enviar el formulario
 
-    axios.get('http://localhost:5000/create-hubspot-contact', {
+    axios.get('http://a2fa-102-177-160-113.ngrok-free.app/create-hubspot-contact', {
         params: {
             email: emailInput.value
         }
