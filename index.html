@@ -88,12 +88,15 @@ form.addEventListener('submit', function (event) {
             email: emailInput.value
         }
     })
-        .then(function (response) {
+        .then(function (response) {if (response.data.token) {
             window.hsConversationsSettings = {
                 identificationEmail: emailInput.value,
                 identificationToken: response.data.token,
             };
             window.HubSpotConversations.widget.load();
+        } else {
+            console.log('Token not available in response data.');
+        }
         })
         .catch(function (error) {
             console.log(error);
