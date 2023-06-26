@@ -88,7 +88,9 @@ form.addEventListener('submit', function (event) {
             email: emailInput.value
         }
     })
-        .then(function (response) {if (response.data.token) {
+        .then(function (response) {
+            console.log(response.data)
+            if (response.data.token) {
             window.hsConversationsSettings = {
                 identificationEmail: emailInput.value,
                 identificationToken: response.data.token,
