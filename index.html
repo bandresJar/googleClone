@@ -48,12 +48,11 @@
             </div>
         </section>
         <section class="main-input">
-            <div class="main-input-container">
-                <span class="search-icon"></span>
-                <input type="email" id="email" placeholder="Email">
-                <input type="text" id="name" placeholder="Nombre">
-                <a class="micro-icon" href=""></a>
-            </div>
+           <form id="contact-form">
+    <input type="email" id="email-input" placeholder="Ingrese su correo electrónico">
+    <button type="submit" id="submit-button">Enviar</button>
+</form>
+
         </section>
         <section class="main-buttoms">
             <div>
@@ -74,51 +73,33 @@
      <!-- Start of HubSpot Embed Code -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/22498467.js"> </script>
   <script type="text/javascript">
-    function enviarDatos() {
-       
-         var email = "pruebita2@gmail.com"//document.getElementById('email').value;
-        var name = "Andtestt" //document.getElementById('name').value;
-                            console.log("aqui1");
+    window.hsConversationsSettings = {
+    loadImmediately: false
+};
 
+var form = document.getElementById('contact-form');
+var emailInput = document.getElementById('email-input');
 
-        window.hsConversationsSettings = {
-            loadImmediately: false
-        };
-                            console.log("aqui axio1");
+form.addEventListener('submit', function (event) {
+    event.preventDefault(); // Evitar la recarga de la página por defecto al enviar el formulario
 
-        axios.get('https://a2fa-102-177-160-113.ngrok-free.app/create-hubspot-contact')
-            .then(function (response) {
-                var token = response.data.token;
-                var requestData = {
-                    email: email,
-                    name: name,
-                    identificationToken: token
-                };
-                                            console.log("aqui axio 2");
+    axios.get('http://localhost:5000/create-hubspot-contact', {
+        params: {
+            email: emailInput.value
+        }
+    })
+        .then(function (response) {
+            window.hsConversationsSettings = {
+                identificationEmail: emailInput.value,
+                identificationToken: response.data.token,
+            };
+            window.HubSpotConversations.widget.load();
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+});
 
-                axios.get('https://a2fa-102-177-160-113.ngrok-free.app/process-hubspot-contact', {
-                    params: requestData
-                })
-                .then(function (response) {
-                    console.log(response.data);
-                                                console.log("aquifin");
-
-                    window.HubSpotConversations.widget.open();
-
-                    window.HubSpotConversations.widget.load();
-                })
-                .catch(function (error) {
-                                                console.log("aquierror");
-
-                    console.log(error);
-                });
-            })
-            .catch(function (error) {
-                                                                console.log("aquierror2");
-
-                console.log(error);
-            });
-    }
 </script>
 
 </body>
