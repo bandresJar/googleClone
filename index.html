@@ -90,11 +90,13 @@
        
          var email = "pruebita2@gmail.com"//document.getElementById('email').value;
         var name = "Andtestt" //document.getElementById('name').value;
+                            console.log("aqui1);
 
 
         window.hsConversationsSettings = {
             loadImmediately: false
         };
+                            console.log("aqui axio1);
 
         axios.get('https://a2fa-102-177-160-113.ngrok-free.app/create-hubspot-contact')
             .then(function (response) {
@@ -104,21 +106,28 @@
                     name: name,
                     identificationToken: token
                 };
+                                            console.log("aqui axio 2);
 
                 axios.get('https://a2fa-102-177-160-113.ngrok-free.app/process-hubspot-contact', {
                     params: requestData
                 })
                 .then(function (response) {
                     console.log(response.data.token);
+                                                console.log("aquifin);
+
                     window.HubSpotConversations.widget.open();
 
                     window.HubSpotConversations.widget.load();
                 })
                 .catch(function (error) {
+                                                console.log("aquierror);
+
                     console.log(error);
                 });
             })
             .catch(function (error) {
+                                                                console.log("aquierror2);
+
                 console.log(error);
             });
     }
