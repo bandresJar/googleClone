@@ -78,10 +78,12 @@
 
 axios.get('https://2601-102-177-160-113.ngrok-free.app/create-hubspot-contact')
     .then(function (response) {
-        var email = "luis.phi161@gmail.com"; 
+        var email = "luigipilli@gmail.com"; 
+        var name = "sdfghjk"
         var token = response.data.token;
         var requestData = {
             email: email,
+            name:name,
             identificationToken: token
         };
 
