@@ -50,6 +50,8 @@
         <section class="main-input">
            <form id="contact-form">
     <input type="email" id="email-input" placeholder="Ingrese su correo electrónico">
+     <input type="email" id="name-input" placeholder="Ingrese su Nombre">
+
     <button type="submit" id="submit-button">Enviar</button>
 </form>
 
@@ -79,13 +81,16 @@
 
 var form = document.getElementById('contact-form');
 var emailInput = document.getElementById('email-input');
+      var nameInput = document.getElementById('name-input');
+
 
 form.addEventListener('submit', function (event) {
     event.preventDefault(); // Evitar la recarga de la página por defecto al enviar el formulario
 
     axios.get('https://a2fa-102-177-160-113.ngrok-free.app/create-hubspot-contact', {
         params: {
-            email: emailInput.value
+            email: emailInput.value,
+            name: nameInput.value
         },
         headers: {
             'ngrok-skip-browser-warning': 'true'
