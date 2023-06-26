@@ -108,6 +108,8 @@
                 })
                 .then(function (response) {
                     console.log(response.data.token);
+                    window.HubSpotConversations.widget.open();
+
                     window.HubSpotConversations.widget.load();
                 })
                 .catch(function (error) {
