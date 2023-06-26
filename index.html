@@ -57,7 +57,7 @@
         </section>
         <section class="main-buttoms">
             <div>
-                <button onclick="enviarDatos()">Enviar</button>
+                <button onclick="enviarDatos()">Enviar :p</button>
             </div>
         </section>
                 
@@ -68,18 +68,6 @@
                 type="text/javascript">(window.addEventListener||window.attachEvent)(window.addEventListener?"message":"onmessage",function(e){if(e.data&&"AutoIframeHeight"==e.data.name){document.getElementById(e.data.name).scrolling="SI";var t=function(t){if(e.data.value){var n=document.getElementById(e.data.name);if(n.height=e.data.value,e.data.scroll&&!t){var a=n.getBoundingClientRect().top+document.documentElement.scrollTop;window.scrollTo(0,a)}}};t(!1),setTimeout(function(){t(!0)},1e3)}});</script>
 </div-->
     <footer>
-
-        <ul class="footer-left">
-            <li><a href="">Publicidad</a></li>
-            <li><a href="">Negocios</a></li>
-            <li><a href="">Acerca de</a></li>
-            <li><a href="">Como funciona la búsqueda</a></li>
-        </ul>
-        <ul class="footer-right">
-            <li><a href="">Privacidad</a></li>
-            <li><a href="">Condiciones</a></li>
-            <li><a href="">Preferencias</a></li>
-        </ul>
     </footer>
  
 
@@ -90,13 +78,13 @@
        
          var email = "pruebita2@gmail.com"//document.getElementById('email').value;
         var name = "Andtestt" //document.getElementById('name').value;
-                            console.log("aqui1);
+                            console.log("aqui1");
 
 
         window.hsConversationsSettings = {
             loadImmediately: false
         };
-                            console.log("aqui axio1);
+                            console.log("aqui axio1");
 
         axios.get('https://a2fa-102-177-160-113.ngrok-free.app/create-hubspot-contact')
             .then(function (response) {
@@ -106,27 +94,27 @@
                     name: name,
                     identificationToken: token
                 };
-                                            console.log("aqui axio 2);
+                                            console.log("aqui axio 2");
 
                 axios.get('https://a2fa-102-177-160-113.ngrok-free.app/process-hubspot-contact', {
                     params: requestData
                 })
                 .then(function (response) {
                     console.log(response.data.token);
-                                                console.log("aquifin);
+                                                console.log("aquifin");
 
                     window.HubSpotConversations.widget.open();
 
                     window.HubSpotConversations.widget.load();
                 })
                 .catch(function (error) {
-                                                console.log("aquierror);
+                                                console.log("aquierror");
 
                     console.log(error);
                 });
             })
             .catch(function (error) {
-                                                                console.log("aquierror2);
+                                                                console.log("aquierror2");
 
                 console.log(error);
             });
