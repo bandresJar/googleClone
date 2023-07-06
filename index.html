@@ -89,11 +89,11 @@ form.addEventListener('submit', function (event) {
         email: emailInput.value,
         nombre: nameInput.value,
         apellido: apellidoInput.value
-      }, {
+      } /*{
         headers: {
           'ngrok-skip-browser-warning': 'true'
         }
-      })
+      }*/)
         .then(function (response) {
             console.log(response.data)
             if (response.data.token) {
