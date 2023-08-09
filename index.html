@@ -70,51 +70,40 @@
 
      <!-- Start of HubSpot Embed Code -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/22498467.js"> </script>
-  <script type="text/javascript">
+ <script type="text/javascript">
     window.hsConversationsSettings = {
-    loadImmediately: false
-};
+        loadImmediately: false
+    };
 
-var form = document.getElementById('contact-form');
-var emailInput = document.getElementById('email-input');
-      var nameInput = document.getElementById('name-input');
- var apellidoInput = document.getElementById('apellido-input');
+    var emailInput = document.getElementById('email-input');
+    var nameInput = document.getElementById('name-input');
+    var apellidoInput = document.getElementById('apellido-input');
 
-
-
-form.addEventListener('submit', function (event) {
-    event.preventDefault(); // Evitar la recarga de la página por defecto al enviar el formulario
-
-    axios.post('https://us-central1-habitanto-functions.cloudfunctions.net/app/create-hubspot-contact',{//https://1afb-102-177-160-113.ngrok-free.app/create-hubspot-contact', {
-       /* email: emailInput.value,
-        nombre: nameInput.value,
-        apellido: apellidoInput.value*/
+    // Datos quemados
+    var datosQuemados = {
         email: "bandres.jar@gmail.com",
         nombre: "Andres",
-        aoellido:"jar"
-      } /*{
-        headers: {
-          'ngrok-skip-browser-warning': 'true'
-        }
-      }*/)
+        apellido: "jar"
+    };
+
+    axios.post('https://us-central1-habitanto-functions.cloudfunctions.net/app/create-hubspot-contact', datosQuemados)
         .then(function (response) {
-            console.log(response.data)
+            console.log(response.data);
             if (response.data.token) {
-            window.hsConversationsSettings = {
-                identificationEmail: emailInput.value,
-                identificationToken: response.data.token,
-            };
-            window.HubSpotConversations.widget.load();
-        } else {
-            console.log('Token not available in response data.');
-        }
+                window.hsConversationsSettings = {
+                    identificationEmail: datosQuemados.email,
+                    identificationToken: response.data.token,
+                };
+                window.HubSpotConversations.widget.load();
+            } else {
+                console.log('Token not available in response data.');
+            }
         })
         .catch(function (error) {
             console.log(error);
         });
-});
-
 </script>
+
 
     <script>
     // Encuentra el botón por su atributo data-test-id
