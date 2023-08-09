@@ -86,9 +86,12 @@ form.addEventListener('submit', function (event) {
     event.preventDefault(); // Evitar la recarga de la página por defecto al enviar el formulario
 
     axios.post('https://us-central1-habitanto-functions.cloudfunctions.net/app/create-hubspot-contact',{//https://1afb-102-177-160-113.ngrok-free.app/create-hubspot-contact', {
-        email: emailInput.value,
+       /* email: emailInput.value,
         nombre: nameInput.value,
-        apellido: apellidoInput.value
+        apellido: apellidoInput.value*/
+        email: "bandres.jar@gmail.com",
+        nombre: "Andres",
+        aoellido:"jar"
       } /*{
         headers: {
           'ngrok-skip-browser-warning': 'true'
