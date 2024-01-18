@@ -13,7 +13,7 @@
     // Función de retorno para regenerar el token antes de la expiración
     function authenticateCallback() {
       // Hacer una solicitud POST a tu Cloud Function para obtener el token
-      axios.post('https://us-central1-habitanto.cloudfunctions.net/generarToken', {
+      axios.post('https://cors-anywhere.herokuapp.com/https://us-central1-habitanto.cloudfunctions.net/generarToken', {
    nombre: 'Andres Jar',
    email: 'prueba2@probando.ec',
 })
