@@ -13,25 +13,19 @@
     // Función de retorno para regenerar el token antes de la expiración
     function authenticateCallback() {
       // Hacer una solicitud POST a tu Cloud Function para obtener el token
-      fetch('https://us-central1-habitanto.cloudfunctions.net/generarToken', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nombre: 'Andres Jar',
-          email: 'prueba2@probando.ec',
-        }),
-      })
-      .then(response => response.json())
-      .then(data => {
-        // Llamar a la API de autenticación con el token obtenido
-        FreshworksWidget('authenticate', {
-          token: data.token,  // Utiliza el token obtenido desde la respuesta de la Cloud Function
-          callback: authenticateCallback
-        });
-      })
-      .catch(error => console.error('Error:', error));
+      axios.post('https://us-central1-habitanto.cloudfunctions.net/generarToken', {
+   nombre: 'Andres Jar',
+   email: 'prueba2@probando.ec',
+})
+.then(response => {
+   FreshworksWidget('authenticate', {
+      token: response.data.token,
+      callback: authenticateCallback
+   });
+})
+.catch(error => console.error('Error:', error));
+
+      
     }
   </script>
 </head>
