@@ -33,6 +33,12 @@
                 // Puedes agregar más lógica de manejo de errores según sea necesario
             });
     }
+
+    // Callback para Freshdesk
+    function freshdeskCallback() {
+        console.log('Callback de Freshdesk');
+        // Puedes agregar lógica adicional según sea necesario
+    }
 </script>
 </head>
 <body>
@@ -140,7 +146,11 @@
     authenticateCallback(); // Llama a la función directamente al cargar la página
     console.log('Después de llamar a authenticateCallback');
 
-    // Otros console.log o código adicional aquí
+    // Configuración de Freshdesk con el callback
+    FreshworksWidget('on', 'widget:load', function () {
+        FreshworksWidget('on', 'contact:opened', freshdeskCallback);
+        FreshworksWidget('on', 'article:opened', freshdeskCallback);
+    });
 </script>
     
     
