@@ -134,9 +134,16 @@
                 });
             })
             .catch(error => {
-                console.error('Error en Axios:', error);
-                // Puedes agregar más lógica de manejo de errores según sea necesario
-            });
+    console.error('Error en Axios:', error);
+    if (error.response) {
+        console.error('Respuesta del servidor:', error.response.data);
+        console.error('Estado del servidor:', error.response.status);
+    } else if (error.request) {
+        console.error('No se recibió respuesta del servidor.');
+    } else {
+        console.error('Error durante la solicitud:', error.message);
+    }
+});
     }
 
     // Callback para Freshdesk
